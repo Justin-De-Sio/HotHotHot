@@ -3,12 +3,15 @@
 final class View
 {
     private static string $title = 'foo';
+    private static $stylesheets = array();
 
-    public static function getTitle() {
+    public static function getTitle()
+    {
         return self::$title;
     }
 
-    public static function setTitle($t) {
+    public static function setTitle($t)
+    {
         self::$title = $t;
     }
 
@@ -22,6 +25,16 @@ final class View
     {
         // On retourne le contenu du tampon principal
         return ob_get_clean();
+    }
+
+    public static function addStyleSheets($path)
+    {
+        self::$stylesheets[] = $path;
+    }
+
+    public static function getStyleSheets(): array
+    {
+        return self::$stylesheets;
     }
 
     public static function show($S_location, $A_parameters = array())
