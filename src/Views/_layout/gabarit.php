@@ -7,13 +7,18 @@
 
     <?php foreach (View::getStyleSheets() as $styleSheet):?>
         <link rel="stylesheet" href="<?= Constants::getPublicPath().$styleSheet; ?>">
-
     <?php endforeach; ?>
+
+    <?php foreach (View::getScripts()['head'] ?? array() as $k => $s) : ?>
+        <script type="<?= $s['type'] ?? 'text/javascript'; ?>" src="<?= $s['offline'] ? '' : Constants::getPublicPath(); ?><?= $s['path']; ?>"></script>
+    <?php endforeach ?>
 
 </head>
 <body>
-<?php View::show('standard/head'); ?>
-<?= $A_view['body']; ?>
-<?php View::show('standard/foot'); ?>
+<?php
+View::show('standard/head');
+echo $A_view['body'];
+View::show('standard/foot');
+?>
 </body>
 </html>
