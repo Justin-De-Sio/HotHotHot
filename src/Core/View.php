@@ -2,9 +2,9 @@
 
 final class View
 {
-    private static string $title = 'foo';
-    private static array $stylesheets;
-    private static array $scripts;
+    private static $title = 'foo';
+    private static $stylesheets;
+    private static $scripts;
 
 
     public static function getTitle()
