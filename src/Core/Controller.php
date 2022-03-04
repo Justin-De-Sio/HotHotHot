@@ -8,7 +8,7 @@ final class Controller
     {
         if (empty($S_controller))
             // Nous avons pris le parti de préfixer tous les controleurs par "Controller"
-            $this->_A_urlDecortique['controller'] = 'ControllerHelloWorld';
+            $this->_A_urlDecortique['controller'] = 'ControllerHomePage';
         else
             $this->_A_urlDecortique['controller'] = 'Controller' . ucfirst($S_controller);
 
