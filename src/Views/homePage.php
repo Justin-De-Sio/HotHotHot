@@ -1,3 +1,7 @@
+<?php View::setTitle('Page de bienvenue'); ?>
+<?php View::addStyleSheets('/css/style1.css') ;?>
+<?php View::addScript('hello','/js/hello.js',true) ;?>
+
   <div class="content">
         <h3>Sticky Navbar test</h3>
         <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque
