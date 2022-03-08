@@ -8,13 +8,13 @@ var CACHE = 'mysweetpwa1';
 
 // On install, cache some resource.
 self.addEventListener('install', function(evt) {
-    //console.log('The service worker is being installed.');
+    console.log('The service worker is being installed.');
     // Open a cache and use `addAll()` with an array of assets to add all of them
     // to the cache. Ask the service worker to keep installing until the
     // returning promise resolves.
     evt.waitUntil(caches.open(CACHE).then(function (cache) {
         cache.addAll([
-            "/pwa.php",
+            "/index.html",
             "/assets/images/favicon-16x16.png",
             "/assets/images/favicon-32x32.png",
             "/assets/images/android-chrome-192x192.png",

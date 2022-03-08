@@ -50,8 +50,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 *Pour notre exemple on simule à interval régulier une analyse de valeur
 */
 var button = document.getElementById("notifications");
-button.addEventListener('click', function(e) {
-    Notification.requestPermission().then(function(result) {
+button.addEventListener('click', e => {
+    Notification.requestPermission().then(result => {
         if(result === 'granted') {
             randomNotification();
         }
@@ -90,12 +90,10 @@ var socket = new WebSocket("wss://ws.hothothot.dog:9502");
 socket.onopen = function(event) {
     console.log("Connexion établie");
     // Display user friendly messages for the successful establishment of connection
-    let label = document.getElementById("status");
-    let anime = document.getElementById("anime");
-    setTimeout(function(){if (socket.readyState == 1){
+
+    setTimeout(() => {if (socket.readyState == 1){
         socket.send("coucou !");
-        label.innerHTML = "Connexion établie";
-        anime.style.display ='block' ;
+
     }else{
         console.log("état socket.readyState");
         console.log(socket.readyState);
