@@ -1,4 +1,3 @@
-
 var CACHE = 'mysweetpwa1';
 /*
 * Exemple issu du cookbook MDN
@@ -7,12 +6,12 @@ var CACHE = 'mysweetpwa1';
 //
 
 // On install, cache some resource.
-self.addEventListener('install', function(evt) {
+self.addEventListener('install', evt => {
     console.log('The service worker is being installed.');
     // Open a cache and use `addAll()` with an array of assets to add all of them
     // to the cache. Ask the service worker to keep installing until the
     // returning promise resolves.
-    evt.waitUntil(caches.open(CACHE).then(function (cache) {
+    evt.waitUntil(caches.open(CACHE).then(cache => {
         cache.addAll([
             "/index.html",
             "/assets/images/favicon-16x16.png",
@@ -26,12 +25,14 @@ self.addEventListener('install', function(evt) {
 });
 
 
-
+//Stale-while-revalidate
+//
+// Si la ressource est dans le cache, on l'utilise et, dans le même temps on rafraichit ce cache via le réseau pour la fois suivante.
 
 
 // On fetch, use cache but update the entry with the latest contents
 // from the server.
-self.addEventListener('fetch', function(evt) {
+self.addEventListener('fetch', evt => {
     console.log('The service worker is serving the asset.');
     // You can use `respondWith()` to answer ASAP...
     evt.respondWith(fromCache(evt.request));
@@ -50,9 +51,7 @@ self.addEventListener('fetch', function(evt) {
 // but it does with `undefined` as value.
 function fromCache(request) {
     console.log('match cache request');
-    return caches.open(CACHE).then(function (cache) {
-        return cache.match(request);
-    });
+    return caches.open(CACHE).then(cache => cache.match(request));
 }
 
 
@@ -60,20 +59,18 @@ function fromCache(request) {
 // storing the new response data.
 function update(request) {
     console.log('update cache');
-    return caches.open(CACHE).then(function (cache) {
-        return fetch(request).then(function (response) {
-            return cache.put(request, response.clone()).then(function () {
-                return response;
-            });
-        });
-    });
+    return caches.open(CACHE)
+        .then(cache => fetch(request)
+            .then(response => cache
+                .put(request, response.clone())
+                .then(() => response)));
 }
 
 // Sends a message to the clients.
 function refresh(response) {
 
-    return self.clients.matchAll().then(function (clients) {
-        clients.forEach(function (client) {
+    return self.clients.matchAll().then(clients => {
+        clients.forEach(client => {
             // Encode which resource has been updated. By including the
             // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) the client can
             // check if the content has changed.

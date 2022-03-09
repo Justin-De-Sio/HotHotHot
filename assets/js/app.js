@@ -2,10 +2,10 @@
 
 if ('serviceWorker' in navigator) {
 
-    navigator.serviceWorker.register('../../sw.js').then(function(reg) {
+    navigator.serviceWorker.register('../../sw.js').then(reg => {
         // enregistrement ok
         console.log('Registration succeeded. Scope is ' + reg.scope);
-    }).catch(function(error) {
+    }).catch(error => {
         // echec de l'enregistrement
         console.log('Registration failed with ' + error);
     });
@@ -87,7 +87,7 @@ function randomNotification() {
 /*Websocket*/
 
 var socket = new WebSocket("wss://ws.hothothot.dog:9502");
-socket.onopen = function(event) {
+socket.onopen = event => {
     console.log("Connexion établie");
     // Display user friendly messages for the successful establishment of connection
 
@@ -99,7 +99,7 @@ socket.onopen = function(event) {
         console.log(socket.readyState);
     };}, 5000)
 }
-socket.onmessage = function(event) {
+socket.onmessage = event => {
     var datas = document.getElementById("datas");
     datas.innerHTML = event.data;
 }
