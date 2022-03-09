@@ -1,4 +1,4 @@
-var CACHE = 'mysweetpwa1';
+var CACHE = 'HotHotHotV1';
 /*
 * Exemple issu du cookbook MDN
 * https://github.com/mdn/serviceworker-cookbook/tree/master/strategy-cache-update-and-refresh

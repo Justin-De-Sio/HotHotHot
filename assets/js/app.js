@@ -1,5 +1,8 @@
-/*Enregistrement service worker*/
-
+/*
+ Enregistrement service worker.
+ Vérifie si l'API du service worker est disponible.
+ Si c'est le cas, le service worker sw.js est enregistré une fois la page chargée
+ */
 if ('serviceWorker' in navigator) {
 
     navigator.serviceWorker.register('../../sw.js').then(reg => {
@@ -10,7 +13,8 @@ if ('serviceWorker' in navigator) {
         console.log('Registration failed with ' + error);
     });
 
-};
+}
+
 
 /* Bouton d'installation de notre PWA*/
 
@@ -26,7 +30,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
     // Update UI to notify the user they can add to home screen
     addBtn.style.display = 'block';
 
-    addBtn.addEventListener('click', (e) => {
+    addBtn.addEventListener('click', () => {
         // hide our user interface that shows our A2HS button
         addBtn.style.display = 'none';
         // Show the prompt
@@ -44,17 +48,14 @@ window.addEventListener('beforeinstallprompt', (e) => {
 });
 
 
-
 /*
 *Notifications
 *Pour notre exemple on simule à interval régulier une analyse de valeur
 */
 var button = document.getElementById("notifications");
-button.addEventListener('click', e => {
-    Notification.requestPermission().then(result => {
-        if(result === 'granted') {
-            randomNotification();
-        }
+button.addEventListener('click', () => {
+    Notification.requestPermission().then((result) => {
+        if (result === 'granted') randomNotification();
     });
 });
 
@@ -62,44 +63,43 @@ button.addEventListener('click', e => {
 function randomNotification() {
     var randomNumber = getRandomInt(5);
     console.log(randomNumber);
-    if(randomNumber >= 2) {
+    if (randomNumber >= 2) {
 
-            var notifTitle = "Chaud, non ?";
-            var notifBody = 'Température : ' + randomNumber + '.';
-            var notifImg = '/assets/images/android-chrome-192x192.png';
-            var options = {
-                body: notifBody,
-                icon: notifImg
-            }
-            var notif = new Notification(notifTitle, options);
+        var notifTitle = "Chaud, non ?";
+        var notifBody = 'Température : ' + randomNumber + '.';
+        var notifImg = '/assets/images/android-chrome-192x192.png';
+        var options = {
+            body: notifBody, icon: notifImg
+        }
+        new Notification(notifTitle, options);
 
     }
     setTimeout(randomNotification, 30000);
 }
 
-    //On génére un nombre aléatoire pour la démo
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * Math.floor(max));
-    }
-
+//On génére un nombre aléatoire pour la démo
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
 
 
 /*Websocket*/
-
-var socket = new WebSocket("wss://ws.hothothot.dog:9502");
-socket.onopen = event => {
+// TODO faire fonctionner le websocket
+var socket = new WebSocket('wss://ws.hothothot.dog:9502');
+socket.onopen = () => {
     console.log("Connexion établie");
     // Display user friendly messages for the successful establishment of connection
-
-    setTimeout(() => {if (socket.readyState == 1){
-        socket.send("coucou !");
-
-    }else{
-        console.log("état socket.readyState");
-        console.log(socket.readyState);
-    };}, 5000)
+    let label = document.getElementById("status");
+    setTimeout(() => {
+        if (socket.readyState === 1) {
+            socket.send("coucou !");
+            label.innerHTML = "Connexion établie";
+        } else {
+            console.log(`état socket.readyState${socket.readyState}`);
+        }
+    }, 5000)
 }
-socket.onmessage = event => {
+socket.onmessage = (event) => {
     var datas = document.getElementById("datas");
     datas.innerHTML = event.data;
 }
