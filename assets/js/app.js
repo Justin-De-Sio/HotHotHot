@@ -100,7 +100,8 @@ socket.onopen = () => {
     }, 5000)
 }
 socket.onmessage = (event) => {
-    subject.Notify(event.data);
+    var datas = document.getElementById("datas");
+    datas.innerHTML = event.data;
 }
 
 
