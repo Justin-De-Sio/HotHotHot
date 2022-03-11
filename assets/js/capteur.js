@@ -21,25 +21,14 @@ socket.onmessage = (event) => {
     if (event.data)
         datas.innerHTML = event.data
     else
-        datas.innerHTML = "pas connecter"
+        datas.innerHTML = "pas de donner"
     console.log(event.data)
 }
 
 
-//api
-//
-//     let url ='https://hothothot.dog/api/capteurs/exterieur'
-//     fetch(url)
-//         .then((response) => response.json()
-//             .then((data)=>{console.log(data)}))
+// api
 
-
-const GetData = [];
-useEffect(() => {
-    fetch('https://hothothot.dog/api/capteurs/exterieur')
-        .then((res) => res.json())
-        .then((data) => {
-            GetModesData.push(...data);
-            setDataState(GetData.map((d) => d.modeName));
-        });
-}, []);
+    let url ='https://hothothot.dog/api/capteurs/exterieur'
+    fetch(url)
+        .then((response) => response.json()
+            .then((data)=>{console.log(data)}))
