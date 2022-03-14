@@ -55,18 +55,34 @@ window.addEventListener('beforeinstallprompt', (e) => {
 var button = document.getElementById("notifications");
 button.addEventListener('click', () => {
     Notification.requestPermission().then((result) => {
-        if (result === 'granted') randomNotification();
+        if (result === 'granted') NotificationTemp();
     });
 });
 
 
-function randomNotification() {
-    var randomNumber = getRandomInt(5);
-    console.log(randomNumber);
-    if (randomNumber >= 2) {
+// function randomNotification() {
+//     var randomNumber = getRandomInt(5);
+//     console.log(randomNumber);
+//     if (randomNumber >= 2) {
+//
+//         var notifTitle = "Chaud, non ?";
+//         var notifBody = 'Température : ' + randomNumber + '.';
+//         var notifImg = '/assets/images/android-chrome-192x192.png';
+//         var options = {
+//             body: notifBody, icon: notifImg
+//         }
+//         new Notification(notifTitle, options);
+//
+//     }
+//     setTimeout(randomNotification, 30000);
+// }
+
+function NotificationTemp() {
+    var TempExt = msg.capteurs[1].Valeur
+    if (TempExt >= 2) {
 
         var notifTitle = "Chaud, non ?";
-        var notifBody = 'Température : ' + randomNumber + '.';
+        var notifBody = 'Température : ' + TempExt + '.';
         var notifImg = '/assets/images/android-chrome-192x192.png';
         var options = {
             body: notifBody, icon: notifImg
@@ -74,7 +90,7 @@ function randomNotification() {
         new Notification(notifTitle, options);
 
     }
-    setTimeout(randomNotification, 30000);
+    setTimeout(NotificationTemp, 30000);
 }
 
 //On génére un nombre aléatoire pour la démo
