@@ -1,10 +1,8 @@
 /*Websocket*/
-// TODO faire fonctionner le websocket
 
-var socket = new WebSocket('wss://ws.hothothot.dog:950');//2
+var socket = new WebSocket('wss://ws.hothothot.dog:9502');
 if(socket.onopen) {
     socket.onopen = () => {
-        console.log("Connexion établie");
         // Display user friendly messages for the successful establishment of connection
         let label = document.getElementById("status");
         setTimeout(() => {
@@ -12,7 +10,7 @@ if(socket.onopen) {
                 socket.send("coucou !");
                 label.innerHTML = "Connexion établie";
             } else {
-                console.log(`état socket.readyState${socket.readyState}`);
+                // console.log(`état socket.readyState${socket.readyState}`);
 
             }
         }, 5000)
@@ -41,13 +39,13 @@ else{
     //se connecter a une API
 
     console.log("connexion au websocket impossible connexion à l'API")
-    let label = document.getElementById("status");
-    label.innerHTML = "Connexion API";
-
-    let urlint ='https://hothothot.dog/api/capteurs/exterieur'
-    fetch(urlint)
-        .then((response) => response.json()
-            .then((data)=>{console.log(data)}))
+    // let label = document.getElementById("status");
+    // label.innerHTML = "Connexion API";
+    //
+    // let urlint ='https://hothothot.dog/api/capteurs/exterieur'
+    // fetch(urlint)
+    //     .then((response) => response.json()
+    //         .then((data)=>{console.log(data)}))
 
     // var ApiITemperatur =  Response.capteurs.Valeur;
     // var ApiITimestamp = response.capteur[0].Timestamp;
