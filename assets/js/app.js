@@ -49,9 +49,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 
 /*
-*Notifications
-*Pour notre exemple on simule à interval régulier une analyse de valeur
-*/
+ *Notifications
+ *Pour notre exemple on simule à interval régulier une analyse de valeur
+ */
 var button = document.getElementById("notifications");
 button.addEventListener('click', () => {
     Notification.requestPermission().then((result) => {
@@ -85,7 +85,8 @@ function NotificationTemp() {
         var notifBody = 'Température : ' + TempExt + '.';
         var notifImg = '/assets/images/android-chrome-192x192.png';
         var options = {
-            body: notifBody, icon: notifImg
+            body: notifBody,
+            icon: notifImg
         }
         new Notification(notifTitle, options);
 
@@ -97,6 +98,5 @@ function NotificationTemp() {
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
-
 
 
