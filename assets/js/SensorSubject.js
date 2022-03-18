@@ -26,14 +26,6 @@ SensorSubject.prototype = {
     }
 }
 
-class Controller {
-    Update(data) {
-        console.log("nouvelle donnée : " + data)
-    }
-}
 
-var subject = new SensorSubject();
-var controller = new Controller()
-subject.subscribe(controller.Update)
 
 
