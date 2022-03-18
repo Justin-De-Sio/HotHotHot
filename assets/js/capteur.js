@@ -37,6 +37,7 @@ if (socket.onopen) {
         .then((response) => response.json()
             .then((data) => {
                 subject.Notify(data)
+                console.log(data)
             }))
 
 }
