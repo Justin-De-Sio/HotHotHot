@@ -15,7 +15,7 @@ class SensorModel {
 
 
     update(data) { // c'est ici que l'on met tout nos methods à activé à chaque mise à jour
-        this.addData(data) // TODO uncaught TypeError: this.addData is not a function
+        // this.addData(data) // TODO uncaught TypeError: this.addData is not a function
         app.sensorView.displayDataByConsole(data) // Console.log
 
     }
@@ -50,3 +50,4 @@ class SensorView {
 const app = new SensorController(new SensorModel(), new SensorView())
 var subject = new SensorSubject();
 subject.subscribe(app.sensorModel.update)
+subject.Notify(4)
