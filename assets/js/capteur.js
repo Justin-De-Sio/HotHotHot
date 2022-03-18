@@ -21,6 +21,7 @@ if(socket.onopen) {
         var datas = document.getElementById("datas");
         if (event.data)
             datas.innerHTML = event.data
+            // subject.Notify(event.data)
         else
             datas.innerHTML = "pas de donner"
         var msg = JSON.parse(event.data)
