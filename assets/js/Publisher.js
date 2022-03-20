@@ -1,8 +1,8 @@
-function SensorSubject() {
+function Publisher() {
     this.handlers = [];  // observers
 }
 
-SensorSubject.prototype = {
+Publisher.prototype = {
 
     subscribe: function (fn) {
         this.handlers.push(fn);
