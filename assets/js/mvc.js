@@ -15,13 +15,13 @@ class SensorModel {
         // let exteriorData = capteurs[1];
         // this.exteriorValue = exteriorData['Valeur'];
         // this.time = interiorData.Timestamp;
-        this.addDate(capteurs)
+        this.addData(capteurs)
         // this.dataCapteurExtrreiur = data.capteurs[1];
         // app.sensorView.displayDataByConsole(this.exteriorValue)// Console.log
 
     }
 
-    addDate(data) {
+    addData(data) {
         this._history.push(data)
         this._commit(this._history)
     }
