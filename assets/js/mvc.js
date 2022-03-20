@@ -58,12 +58,25 @@ class SensorView {
     }
 
     displayLastData(history) {
-        console.log(history)
-            const lastElement = history.slice(-1)[0];
-            if (lastElement){
-                lastElement.forEach(capteur => console.log(capteur))
+
+        const lastCapteursData = history.slice(-1)[0];
+        if (lastCapteursData) {
+            for (let i = 0; i < lastCapteursData.length; i++) {
+                this.listValuesCapteur=[]
+                for (let j = 0; j < history.length; j++) {
+                    this.listValuesCapteur.push(history[j][i].Valeur);
+                }
+                this.listValuesCapteur = this.listValuesCapteur.map(Number)
+
+                let capteur = lastCapteursData[i]
+                console.log(`Nom:${capteur.Nom} ; Valeur: ${capteur.Valeur} degree ; min :${Math.min.apply(Math, this.listValuesCapteur)}; max :${Math.max.apply(Math, this.listValuesCapteur)}`)
+
             }
+
+        }
+
     }
+
 }
 
 class SensorController {
@@ -78,7 +91,7 @@ class SensorController {
     }
 
     onHistoryChanged = (history) => {
-        this.sensorView.displayHistory(history)
+        // this.sensorView.displayHistory(history)
         this.sensorView.displayLastData(history)
     }
 }
