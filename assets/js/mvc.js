@@ -31,6 +31,9 @@ class SensorModel {
         return this._history;
     }
 
+    bindHistoryChanged(callback){
+        this.onHistoryChanged = callback
+    }
     _commit(history) {
         this.onHistoryChanged(this.history)
         localStorage.setItem('history', JSON.stringify(history))
@@ -50,7 +53,7 @@ class SensorView {
     }
 
     displayHistory(history) {
-        this.to
+        console.log(history)
     }
 }
 
@@ -61,6 +64,8 @@ class SensorController {
 
         // Display initial data
         this.onHistoryChanged(this.sensorModel._history)
+
+        this.sensorModel.bindHistoryChanged(this.onHistoryChanged)
     }
 
     onHistoryChanged = (history) => this.sensorView.displayHistory(history)
