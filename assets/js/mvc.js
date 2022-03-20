@@ -31,12 +31,13 @@ class SensorModel {
         return this._history;
     }
 
-    bindHistoryChanged(callback){
+    bindHistoryChanged(callback) {
         this.onHistoryChanged = callback
     }
+
     _commit(history) {
-        this.onHistoryChanged(this.history)
         localStorage.setItem('history', JSON.stringify(history))
+        this.onHistoryChanged(this.history)
     }
 
 
@@ -55,6 +56,14 @@ class SensorView {
     displayHistory(history) {
         console.log(history)
     }
+
+    displayLastData(history) {
+        console.log(history)
+            const lastElement = history.slice(-1)[0];
+            if (lastElement){
+                lastElement.forEach(capteur => console.log(capteur))
+            }
+    }
 }
 
 class SensorController {
@@ -63,12 +72,15 @@ class SensorController {
         this.sensorView = sensorView;
 
         // Display initial data
-        this.onHistoryChanged(this.sensorModel._history)
+        this.onHistoryChanged(this.sensorModel.history)
 
         this.sensorModel.bindHistoryChanged(this.onHistoryChanged)
     }
 
-    onHistoryChanged = (history) => this.sensorView.displayHistory(history)
+    onHistoryChanged = (history) => {
+        this.sensorView.displayHistory(history)
+        this.sensorView.displayLastData(history)
+    }
 }
 
 const app = new SensorController(new SensorModel(), new SensorView())
