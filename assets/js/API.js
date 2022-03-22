@@ -24,6 +24,10 @@ setInterval(api, 10000)
 
 function api() {
     if (socket.readyState !== 1) {
+
+        let label = document.getElementById("status");
+        label.innerHTML = "Connexion API";
+
         const apiCapteurs = 'https://hothothot.dog/api/capteurs'
         fetch(apiCapteurs)
             .then((response) => response.json()
