@@ -5,20 +5,11 @@ class SensorModel {
         this.update = this.update.bind(this)
     }
 
-
     update(data) {
         // c'est ici que l'on met tout nos methods à activé à chaque mise à jour
         let capteurs = data.capteurs
 
-        // let interiorData = capteurs[0];
-        // this.interiorValue = interiorData['Valeur'];
-        // let exteriorData = capteurs[1];
-        // this.exteriorValue = exteriorData['Valeur'];
-        // this.time = interiorData.Timestamp;
         this.addData(capteurs)
-        // this.dataCapteurExtrreiur = data.capteurs[1];
-        // app.sensorView.displayDataByConsole(this.exteriorValue)// Console.log
-
     }
 
     addData(data) {
@@ -62,6 +53,8 @@ class SensorView {
         const lastCapteursData = history.slice(-1)[0];
         if (lastCapteursData) {
             for (let i = 0; i < lastCapteursData.length; i++) {
+
+
                 this.listValuesCapteur=[]
                 for (let j = 0; j < history.length; j++) {
                     this.listValuesCapteur.push(history[j][i].Valeur);

@@ -23,8 +23,8 @@ socket.onmessage = (event) => {
 setInterval(api, 10000)
 
 function api() {
-    if (/*socket.readyState !==*/ 1) {
-        console.log("connexion au websocket impossible. connexion à l'API...")
+    if (socket.readyState !== 1) {
+
         let label = document.getElementById("status");
         label.innerHTML = "Connexion API";
 
