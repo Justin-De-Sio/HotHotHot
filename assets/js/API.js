@@ -1,36 +1,34 @@
+/*API*/
 /*Websocket*/
-var socket = new WebSocket('wss://ws.hothothot.dog:9502');
+
+const socket = new WebSocket('wss://ws.hothothot.dog:9502');
 
 socket.onopen = () => {
-    // Display user friendly messages for the successful establishment of connection
     setTimeout(() => {
         if (socket.readyState === 1) {
             socket.send("coucou !");
-            console.log("Connexion établie au serveur de websocket");
-        } else {
-            console.log(`état socket.readyState${socket.readyState}`);
+            //Connexion établie au serveur de websocket
         }
     }, 5000)
 }
+
 socket.onmessage = (event) => {
     if (event.data) {
         let data = JSON.parse(event.data);
-        subject.Notify(data)
-    } else
-        console.log("pas de donné")
+        publisher.notify(data)
+    }
 }
 
-setInterval(api, 10000)
-
-function api() {
+/*Si la communication n'est pas ouverte avec le WebSocket alors on utilise l'api simple
+* On vérifie cette condition toutes les minutes*/
+setInterval(() => {
     if (socket.readyState !== 1) {
-
-        const apiCapteurs = 'https://hothothot.dog/api/capteurs'
-        fetch(apiCapteurs)
+        const urlSensorSimpleAPI = 'https://hothothot.dog/api/capteurs'
+        fetch(urlSensorSimpleAPI)
             .then((response) => response.json()
                 .then((data) => {
-                    subject.Notify(data)
+                    publisher.notify(data)
 
                 }))
     }
-}
+}, 60000)

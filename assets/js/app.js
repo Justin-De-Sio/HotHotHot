@@ -60,24 +60,8 @@ button.addEventListener('click', () => {
 });
 
 
-// function randomNotification() {
-//     var randomNumber = getRandomInt(5);
-//     console.log(randomNumber);
-//     if (randomNumber >= 2) {
-//
-//         var notifTitle = "Chaud, non ?";
-//         var notifBody = 'Température : ' + randomNumber + '.';
-//         var notifImg = '/assets/images/android-chrome-192x192.png';
-//         var options = {
-//             body: notifBody, icon: notifImg
-//         }
-//         new Notification(notifTitle, options);
-//
-//     }
-//     setTimeout(randomNotification, 30000);
-// }
 
-function NotificationTemp() {
+function NotificationTemp(temperatures) {
     var TempExt = msg.capteurs[1].Valeur
     if (TempExt >= 2) {
 

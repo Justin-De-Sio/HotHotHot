@@ -1,5 +1,6 @@
+// simple observer
 function Publisher() {
-    this.handlers = [];  // observers
+    this.handlers = [];  // observers/subscribers
 }
 
 Publisher.prototype = {
@@ -17,11 +18,11 @@ Publisher.prototype = {
             }
         );
     },
-
-    Notify: function (o, thisObj) {
-        var scope = thisObj || window;
+    
+    notify: function (newData, thisObj) {
+        const scope = thisObj || window;
         this.handlers.forEach(function (item) {
-            item.call(scope, o);
+            item.call(scope, newData);
         });
     }
 }

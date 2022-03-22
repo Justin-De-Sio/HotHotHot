@@ -5,10 +5,10 @@ class SensorModel {
         this.update = this.update.bind(this)
     }
 
+    // update(data) is subscribed to Publisher
+    // it is called at each notify(data)
     update(data) {
-        // c'est ici que l'on met tout nos methods à activé à chaque mise à jour
-        let capteurs = data.capteurs
-
+        let capteurs = data['capteurs']
         this.addData(capteurs)
     }
 
@@ -31,10 +31,8 @@ class SensorModel {
         this.onHistoryChanged(this.history)
     }
 
-
     clearHistory() {
         this._commit([])
     }
-
 
 }
