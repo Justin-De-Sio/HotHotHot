@@ -1,4 +1,12 @@
 class SensorView {
+    // Create an element with an optional CSS class
+    createElement(tag, className) {
+        const element = document.createElement(tag)
+        if (className) element.classList.add(className)
+        return element
+    }
+
+
 
     displayHistory(history) {
         console.log(history)
