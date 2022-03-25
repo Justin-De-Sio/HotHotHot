@@ -6,20 +6,54 @@
 <title>My sweet PWA</title>
 
 <body>
-    <noscript>
-        <h1>"JavaScript non supporté ! :(" </h1>
-        <img src="/assets/images/android-chrome-512x512.png" alt=""/>
-    </noscript>
+<noscript>
+    <h1>"JavaScript non supporté ! :(" </h1>
+    <img src="/assets/images/android-chrome-512x512.png" alt=""/>
+</noscript>
 
-    <button class="add-button">Ajouter</button>
-    <script src="/assets/js/app.js"></script>
-    <script src="/assets/js/Publisher.js"></script>
-    <script src="/assets/js/SensorModel.js"></script>
-    <script src="/assets/js/SensorView.js"></script>
-    <script src="/assets/js/SensorController.js"></script>
-    <script src="/assets/js/API.js"></script>
+<!--
 
-    <script src="/assets/js/settings.js" defer></script>
+  Radio version of tabs.
+
+  Requirements:
+  - not rely on specific IDs for CSS (the CSS shouldn't need to know specific IDs)
+  - flexible for any number of unkown tabs [2-6]
+  - accessible
+
+  Caveats:
+  - since these are checkboxes the tabs not tab-able, need to use arrow keys
+-->
+
+<div class="tabset">
+    <!-- Tab 1 -->
+    <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+    <label for="tab1">Tableau de bord</label>
+    <!-- Tab 2 -->
+    <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+    <label for="tab2">Graphiques</label>
+
+
+    <div class="tab-panels">
+        <section id="displayTemp" class="tab-panel">
+
+        </section>
+        <section id="graphTemp" class="tab-panel">
+
+        </section>
+    </div>
+
+</div>
+
+
+<button class="add-button">Ajouter</button>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/Publisher.js"></script>
+<script src="/assets/js/SensorModel.js"></script>
+<script src="/assets/js/SensorView.js"></script>
+<script src="/assets/js/SensorController.js"></script>
+<script src="/assets/js/API.js"></script>
+
+<script src="/assets/js/settings.js" defer></script>
 </body>
 
 <script src="footer.js"></script>
