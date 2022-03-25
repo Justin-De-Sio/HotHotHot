@@ -6,7 +6,10 @@ class SensorView {
         return element
     }
 
-
+    // Retrieve an element from the DOM
+    getElement(selector) {
+        return document.querySelector(selector)
+    }
 
     displayHistory(history) {
         console.log(history)
