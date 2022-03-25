@@ -11,6 +11,7 @@ document.write('\
     <link rel="manifest" href="/manifest.webmanifest">\
     <link rel="stylesheet" href="assets\\css\\style.css">\
     <link rel="stylesheet" href="assets\\css\\theme1.css" id="themeCSSLink">\
+    <link rel="stylesheet" href="assets\\css\\tabsToaccordiont.css" >\
 \
     <!--    <link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">-->\
     <meta name="theme-color" content="#ffffff">\
