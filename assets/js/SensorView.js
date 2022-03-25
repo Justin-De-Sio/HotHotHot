@@ -28,10 +28,13 @@ class SensorView {
         console.log(history)
     }
 
-    displayLastData(history) {
-        while (this.displayList.firstChild) {
-            this.displayList.removeChild(this.displayList.firstChild)
+    removeChild(parentElement){
+        while (parentElement.firstChild) {
+            parentElement.removeChild(parentElement.firstChild)
         }
+    }
+    displayLastData(history) {
+        this.removeChild(this.displayList)
 
         const lastCapteurs = history.slice(-1)[0];
         if (lastCapteurs) {
