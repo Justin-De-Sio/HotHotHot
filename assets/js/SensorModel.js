@@ -32,7 +32,7 @@ class SensorModel {
     }
 
     clearHistory() {
-        this._commit([])
+        this._commit(     this._history = [])
     }
 
 }
