@@ -34,5 +34,4 @@ class SensorModel {
     clearHistory() {
         this._commit([])
     }
-
 }

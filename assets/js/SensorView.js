@@ -81,6 +81,21 @@ class SensorView {
             }
         }
     }
+    NotificationTemp(history) {
+        const lastValue = history.slice(-1)[0][0].Valeur
+        console.log(lastValue)
+        if (lastValue >= 1) {
 
+            var notifTitle = "Chaud, non ?";
+            var notifBody = 'Température : ' + lastValue + '.';
+            var notifImg = '/assets/images/android-chrome-192x192.png';
+            var options = {
+                body: notifBody,
+                icon: notifImg
+            }
+            new Notification(notifTitle, options);
 
+        }
+        setTimeout(this.NotificationTemp, 300000);
+    }
 }

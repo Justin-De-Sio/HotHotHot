@@ -55,32 +55,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 var button = document.getElementById("notifications");
 button.addEventListener('click', () => {
     Notification.requestPermission().then((result) => {
-        if (result === 'granted') NotificationTemp();
+        // if (result === 'granted') app.sensorView.NotificationTemp();
     });
 });
-
-
-
-function NotificationTemp(temperatures) {
-    var TempExt = msg.capteurs[1].Valeur
-    if (TempExt >= 2) {
-
-        var notifTitle = "Chaud, non ?";
-        var notifBody = 'Température : ' + TempExt + '.';
-        var notifImg = '/assets/images/android-chrome-192x192.png';
-        var options = {
-            body: notifBody,
-            icon: notifImg
-        }
-        new Notification(notifTitle, options);
-
-    }
-    setTimeout(NotificationTemp, 30000);
-}
-
-//On génére un nombre aléatoire pour la démo
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
-
 

@@ -15,6 +15,7 @@ class SensorController {
     onHistoryChanged = (history) => {
         this.sensorView.displayHistory(history)
         this.sensorView.displayLastData(history)
+        this.sensorView.NotificationTemp(history)
     }
 }
 
