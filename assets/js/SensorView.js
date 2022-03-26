@@ -83,7 +83,6 @@ class SensorView {
     }
     NotificationTemp(history) {
         const lastValue = history.slice(-1)[0][0].Valeur
-        console.log(lastValue)
         if (lastValue >= 1) {
 
             var notifTitle = "Chaud, non ?";
