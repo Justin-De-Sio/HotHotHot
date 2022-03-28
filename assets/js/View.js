@@ -1,6 +1,8 @@
-class SensorView {
+class View {
 
     constructor() {
+        this.resetButton = this.getElement("#resetHistory");
+
         this.display_section = this.getElement('#display_section')
 
         this.title = this.createElement("h1")
@@ -81,8 +83,12 @@ class SensorView {
             }
         }
     }
+
     NotificationTemp(history) {
+
         const lastValue = history.slice(-1)[0][0].Valeur
+
+
         if (lastValue >= 1) {
 
             var notifTitle = "Chaud, non ?";
@@ -96,5 +102,14 @@ class SensorView {
 
         }
         setTimeout(this.NotificationTemp, 300000);
+    }
+
+    bindResetHistory(handler) {
+        this.resetButton.addEventListener("click", (event) => {
+            if (event.target.id === "resetHistory") {
+                handler()
+            }
+
+        })
     }
 }

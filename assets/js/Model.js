@@ -31,7 +31,7 @@ class Model {
         this.onHistoryChanged(this.history)
     }
 
-    clearHistory() {
-        this._commit(     this._history = [])
+    resetHistory() {
+        this._commit(this._history = [])
     }
 }
