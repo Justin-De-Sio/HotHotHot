@@ -1,4 +1,4 @@
-class SensorController {
+class Controller {
     constructor(sensorModel, sensorView) {
         this.sensorModel = sensorModel;
         this.sensorView = sensorView;
@@ -19,6 +19,6 @@ class SensorController {
     }
 }
 
-let app = new SensorController(new SensorModel(), new SensorView())
+let app = new Controller(new Model(), new SensorView())
 let publisher = new Publisher();
 publisher.subscribe(app.sensorModel.update)

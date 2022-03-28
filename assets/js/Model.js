@@ -1,4 +1,4 @@
-class SensorModel {
+class Model {
 
     constructor() {
         this._history = JSON.parse(localStorage.getItem('history')) || []
