@@ -60,6 +60,7 @@ class View {
 
                 this.displayElement = this.createElement("li", capteur['Nom'])
 
+
                 this.displayList.append(this.displayElement)
 
                 this.temperature_name = this.createElement("p", "temperature_name")
