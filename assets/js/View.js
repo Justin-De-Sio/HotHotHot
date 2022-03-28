@@ -86,22 +86,26 @@ class View {
 
     NotificationTemp(history) {
 
-        const lastValue = history.slice(-1)[0][0].Valeur
+        const lastCapteurs = history.slice(-1)[0]
+        if (lastCapteurs) {
+            lastCapteurs.forEach(capteur => {
+                if (parseInt(capteur.Valeur) >= 24) {
 
+                    var notifTitle = "Chaud, non ?";
+                    var notifBody = `Température : ${capteur.Valeur}°C`;
+                    var notifImg = '/assets/images/android-chrome-192x192.png';
+                    var options = {
+                        body: notifBody,
+                        icon: notifImg
+                    }
+                    new Notification(notifTitle, options);
 
-        if (lastValue >= 1) {
+                }
+            })
 
-            var notifTitle = "Chaud, non ?";
-            var notifBody = 'Température : ' + lastValue + '.';
-            var notifImg = '/assets/images/android-chrome-192x192.png';
-            var options = {
-                body: notifBody,
-                icon: notifImg
-            }
-            new Notification(notifTitle, options);
-
+            setTimeout(this.NotificationTemp, 120000);
         }
-        setTimeout(this.NotificationTemp, 300000);
+
     }
 
     bindResetHistory(handler) {
