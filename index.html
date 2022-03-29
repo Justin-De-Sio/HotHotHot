@@ -5,13 +5,13 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dist/output.css">
     <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
     <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="/dist/output.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/theme1.css" id="themeCSSLink">
     <link rel="stylesheet" href="assets/css/tabsToaccordiont.css">
@@ -23,6 +23,40 @@
 
 
 <body>
+
+<nav class="flex items-center justify-between flex-wrap bg-blue-900 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <!--        <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg" src></svg>-->
+        <img class="fill-current h-8 w-8 mr-2" src="assets/images/android-chrome-192x192.png" alt="logo temperature">
+        <span class="font-semibold text-xl tracking-tight">HotHotHot</span>
+    </div>
+    <div class="block lg:hidden">
+        <button class="flex items-center px-3 py-2 border rounded text-indigo-100 border-teal-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+            </svg>
+        </button>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+            <a href="index.html" class="block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
+                <i class="fas fa-home"></i>Home
+            </a>
+            <a href="account.html" class="block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
+                <i class="fas fa-user"></i>Compte
+            </a>
+            <a href="doc.html" class="block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white">
+                <i class="fas fa-book"></i>Documentation
+            </a>
+        </div>
+        <div>
+            <a href="#"
+               class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
+
+
+        </div>
+    </div>
+</nav>
 <div id="param">
     <div class="parametre-content">
         <button id="ChangeThemeButton">
@@ -37,28 +71,20 @@
         </label>
         <label for="notifications">Activer/Désactiver Notifications</label>
     </div>
-
+<!--TODO: faire un switch et la logique derrière :)-->
     <div class="parametre-content">
-        <button id="vibrations">Vibrations</button>
+        <button id="vibrations" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >Vibrations</button>
         <label for="vibrations">Activer/desactiver Vibrations</label>
     </div>
     <div class="parametre-content">
-        <button id="resetHistory">réinitialiser</button>
+        <button id="resetHistory" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >réinitialiser</button>
         <label for="resetHistory">Remettre à zéro l'historique</label>
     </div>
 </div>
 
 <div id="navbar">
-    <a class="active" href="index.html"><i class="fas fa-home"></i></a>
-    <a href="account.html"><i class="fas fa-user"></i></a>
-    <a href="doc.html"><i class="fas fa-book"></i></a>
     <button type="button" id="parambutton"><i class="fas fa-cogs"></i></button>
-
 </div>
-
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-</h1>
 
 
 <noscript>
@@ -79,7 +105,7 @@
   - since these are checkboxes the tabs not tab-able, need to use arrow keys
 -->
 
-<div class="tabset">
+<div class="tabset p-10">
     <!-- Tab 1 -->
     <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
     <label for="tab1">Tableau de bord</label>
@@ -109,8 +135,24 @@
 <script src="/assets/js/API.js"></script>
 
 <script src="/assets/js/settings.js" defer></script>
+
+<footer class="text-center text-white" style="background-color: #0a4275;">
+    <div class="container p-6">
+        <div class="">
+            <p class="flex justify-center items-center">
+                <span class="mr-4">foot</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+        Copyright © 2022 Justin De Sio & Alberoa Constant & Quentin Bohec & Baraka Ahmed & Real Florent
+    </div>
+</footer>
+
+
 </body>
 
-<script src="footer.js"></script>
+<!--<script src="footer.js"></script>-->
 
 </html>
