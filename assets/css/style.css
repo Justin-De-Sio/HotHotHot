@@ -163,7 +163,7 @@ input:checked+.slider:before {
 /*partie doc */
 
 .team{
-    background-image: url(./assets/image/team.jpg);
+    background-image: url(./team.jpg);
     background-size: cover;
 }
 
