@@ -1,8 +1,9 @@
-function SensorSubject() {
-    this.handlers = [];  // observers
+// simple observer
+function Publisher() {
+    this.handlers = [];  // observers/subscribers
 }
 
-SensorSubject.prototype = {
+Publisher.prototype = {
 
     subscribe: function (fn) {
         this.handlers.push(fn);
@@ -17,11 +18,11 @@ SensorSubject.prototype = {
             }
         );
     },
-
-    Notify: function (o, thisObj) {
-        var scope = thisObj || window;
+    
+    notify: function (newData, thisObj) {
+        const scope = thisObj || window;
         this.handlers.forEach(function (item) {
-            item.call(scope, o);
+            item.call(scope, newData);
         });
     }
 }
