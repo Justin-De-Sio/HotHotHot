@@ -86,14 +86,14 @@ class View {
     }
 
     NotificationTemp(history) {
-
+        // const lastCapteurs = history.slice(-1)[1]
         const lastCapteurs = history.slice(-1)[0]
         if (lastCapteurs) {
             lastCapteurs.forEach(capteur => {
-                if (parseInt(capteur.Valeur) >= 24) {
+                if (parseInt(capteur.Valeur) >= 25) {
 
-                    var notifTitle = "Chaud, non ?";
-                    var notifBody = `Température : ${capteur.Valeur}°C`;
+                    var notifTitle = "Alerte Temperature Haute";
+                    var notifBody = `Température ${capteur.Nom}: ${capteur.Valeur}°C`;
                     var notifImg = '/assets/images/android-chrome-192x192.png';
                     var options = {
                         body: notifBody,
@@ -101,6 +101,16 @@ class View {
                     }
                     new Notification(notifTitle, options);
 
+                }
+                if (parseInt(capteur.Valeur) <= 15) {
+                    var notifTitle = "Alerte Temperature Basse";
+                    var notifBody = `Température ${capteur.Nom}: ${capteur.Valeur}°C`;
+                    var notifImg = '/assets/images/android-chrome-192x192.png';
+                    var options = {
+                        body: notifBody,
+                        icon: notifImg
+                    }
+                    new Notification(notifTitle, options);
                 }
             })
 
