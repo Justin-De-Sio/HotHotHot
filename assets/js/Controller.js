@@ -9,18 +9,21 @@ class Controller {
         this.view.bindResetHistory(this.handleResetHistory)
 
         /*We used arrow functions on all the handle events. This allows us to call them from the view using the this context of the controller.
-        * If we did not use arrow functions, we would have to manually bind them,
-        * like this.view.bindAddTodo(this.handleAddTodo.bind(this)). Yikes.*/
+         * If we did not use arrow functions, we would have to manually bind them,
+         * like this.view.bindAddTodo(this.handleAddTodo.bind(this)). Yikes.*/
         this.model.bindHistoryChanged(this.onHistoryChanged)
     }
 
     onHistoryChanged = (history) => {
-        this.view.displayHistory(history)
+        //this.view.displayHistory(history)
         this.view.displayLastData(history)
         this.view.NotificationTemp(history)
+        this.view.displayChart(history)
     }
 
+
     handleResetHistory = () => this.model.resetHistory();
+
 }
 
 let app = new Controller(new Model(), new View())

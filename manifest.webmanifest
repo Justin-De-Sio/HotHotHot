@@ -2,8 +2,8 @@
     "name": "HotHotHot",
     "short_name": "Hot",
     "display": "standalone",
-    "id":"/pwa.html",
-    "start_url": "/pwa.php",
+    "id":"/index.html",
+    "start_url": "/index.html",
     "scope": "https://hothothot.local/",
     "icons": [
         {

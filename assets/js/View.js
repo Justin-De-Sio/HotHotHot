@@ -10,9 +10,14 @@ class View {
 
         this.displayList = this.createElement('ul', 'display-list')
 
+        this.graph = this.getElement('#graph')
+
         this.display_section.append(this.title, this.displayList)
 
+        this.chart;
+
     }
+
 
     // Create an element with an optional CSS class
     createElement(tag, className) {
@@ -29,6 +34,9 @@ class View {
     displayHistory(history) {
         console.log(history)
     }
+
+
+
 
 
     // supprime les anciens affichages de temperature
@@ -55,7 +63,8 @@ class View {
 
                 const capteur = lastCapteurs[capteurIndex]
 
-                // console.log(`Nom:${capteur['Nom']} ; Valeur: ${capteur['Valeur']} degree ; min :${Math.min.apply(Math, this.listValuesCapteur)}; max :${Math.max.apply(Math, this.listValuesCapteur)}`)
+
+                //console.log(`Nom:${capteur['Nom']} ; Valeur: ${capteur['Valeur']} degree ; min :${Math.min.apply(Math, this.listValuesCapteur)}; max :${Math.max.apply(Math, this.listValuesCapteur)}`)
 
 
                 this.displayElement = this.createElement("li", capteur['Nom'])
@@ -84,6 +93,70 @@ class View {
             }
         }
     }
+
+    valuesCapteur = []
+
+
+
+    displayChart(history) {
+        const lastCapteurs = history.slice(-1)[0];
+        this.chartLabel = ['date']
+        this.chartDate = []
+        this.chartValues = []
+
+
+
+        if (lastCapteurs) {
+            for (let capteurIndex = 0; capteurIndex < lastCapteurs.length; capteurIndex++) {
+                this.chartLabel.push(lastCapteurs[capteurIndex]['Nom'])
+                this.valuesCapteur = []
+                this.chartDate = []
+                    // récupère toutes les températures d'un capteur spécifique
+                for (const Element of history) {
+                    let date = new Date(Element[capteurIndex]['Timestamp'] * 1000)
+                    this.chartDate.push(date.getHours() +
+                        ":" + date.getMinutes())
+
+                    this.valuesCapteur.push(Element[capteurIndex]['Valeur']);
+                }
+                this.valuesCapteur = this.valuesCapteur.map(Number) // str -> int
+                this.chartValues.push(this.valuesCapteur)
+
+            }
+
+            this.chartAll = []
+            this.chartAll.push(this.chartLabel)
+
+            for (let index = 0; index < this.chartDate.length; index++) {
+                this.chartAll.push([this.chartDate[index], this.chartValues[0][index], this.chartValues[1][index]])
+
+
+            }
+            console.log(this.chartDate)
+            console.log(this.chartValues)
+            console.log(this.chartLabel)
+            console.log(this.chartAll)
+            this.chart = this.chartAll
+        }
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(this.chart);
+
+            var options = {
+                title: 'Company Performance',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('graph'));
+
+            chart.draw(data, options);
+        }
+    }
+
+
 
     NotificationTemp(history) {
         // const lastCapteurs = history.slice(-1)[1]
@@ -127,4 +200,5 @@ class View {
 
         })
     }
+
 }
