@@ -52,6 +52,7 @@ header h4{
     border-bottom: 1px solid #fff;
 }
 header button{
+    align-items: center;
     padding: 10px 20px;
     background-color: #fff;
     color:#000;
@@ -114,6 +115,68 @@ footer .services .service p{
 footer #contact{
     color: rgb(181, 181, 181);
 }
+
+.team{
+    background-image: url(/assets/images/team.jpg);
+    background-size: cover;
+}
+
+
+.team .contenu{
+    display: flex;
+    margin-top: 40px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.team .contenu .box{
+    width: 340px;
+    margin: 20px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.team .contenu .box .imbox{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.team .contenu .box .imbox img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.team .contenu .box .text{
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.team .contenu .box .text h3{
+    color: #fb911f;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
 
 @media screen and (max-width:680px){
     nav .onglets {

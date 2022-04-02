@@ -1,123 +1,144 @@
-<!doctype html>
 <html lang="fr">
+<head>
 
-<header>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.webmanifest">
-    <link rel="stylesheet" href="/dist/output.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/theme1.css" id="themeCSSLink">
-    <link rel="stylesheet" href="assets/css/tabsToaccordiont.css">
-
-
-    <!--    <link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">-->
-    <meta name="theme-color" content="#ffffff">
-    <title>Page de documentation</title>
-</header>
-
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/css/styledoc.css"
+</head>
 
 <body>
+    <nav>
+        <h1>HotHotHot</h1>
+        <div class="onglets">
+            <a href="index.html">Home</a>
+            <a href="compte.html">Compte</a>
+            <a href="doc.html">Documentation</a>
+        </div>
+    </nav>
 
-<nav class="flex items-center justify-between flex-wrap bg-blue-900 p-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <!--        <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg" src></svg>-->
-        <img class="fill-current h-8 w-8 mr-2" src="assets/images/android-chrome-192x192.png" alt="logo temperature">
-        <span class="font-semibold text-xl tracking-tight">HotHotHot</span>
-    </div>
-    <div class="block lg:hidden">
-        <button class="flex items-center px-3 py-2 border rounded text-indigo-100 border-teal-400 hover:text-white hover:border-white">
-            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-            </svg>
-        </button>
-    </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow">
-            <a href="index.html" class="block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
-                <i class="fas fa-home"></i>Home
-            </a>
-            <a href="account.html" class="block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
-                <i class="fas fa-user"></i>Compte
-            </a>
-            <a href="doc.html" class="block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white">
-                <i class="fas fa-book"></i>Documentation
-            </a>
-        </div>
-        <div>
-            <a href="#"
-               class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
+    <header>
+            <h1><span>Page </span><span>de </span><span>Documentation </span></h1>
+            <div class="container_btn">
+                <button class="btn-first b1 " href="#" >La Team </button>
+                <button class="btn-first b2 " href="#gant" >L'Orgnasationnel</button>
+            </div>
+    </header>
 
+    <img src="/assets/images/favicon-32x32.png">
+
+    <ul class="medias">
+        <li class="bulle"><img src="assets/images/logo git.jpg" alt="https://www.notion.so/just1/HotHotHot-1fcd16ad168144968ff041c49791f6a1" class="logo-medias"></li>
+        <li class="bulle"><img src="assets/images/notion logo.jpg" alt="https://github.com/Justin-De-Sio/HotHotHot" class="logo-medias"></li>
+    </ul>
+    
+    <section class="team" id="team">
+        <div class="titre blanc">
+            <h2 class="titre-texte">Présentation de léquipe</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. </p>
+        </div>
+        <div class="contenu">
+            <div class="box">
+                <div class="imbox">
+                    <img src="./assets/images/RiotX_ChampionList_braum.jpg" alt="">
+                </div>
+                <div class="text">
+                    <p>role: développeurs</p>
+                    <h3>Alberola Constant</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imbox">
+                    <img src="./assets/images/RiotX_ChampionList_kindred.jpg" alt="">
+                </div>
+                <div class="text">
+                    <p>role: développeurs
+                        interface
+                    </p>
+                    <h3>Baraka Ahmed</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imbox">
+                    <img src="./assets/images/RiotX_ChampionList_viego.jpg" alt="">
+                </div>
+                <div class="text">
+                    <p>role: développeurs</p>
+                    <h3>Bohec Quentin</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imbox">
+                    <img src="./assets/images/RiotX_ChampionList_mordekaiser_v2.jpg" alt="">
+                </div>
+                <div class="text">
+                    <p>role: Product Owner architecutre </p>
+                    <h3>De Sio Justin</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imbox">
+                    <img src="./assets/images/RiotX_ChampionList_pyke.jpg" alt="">
+                </div>
+                <div class="text">
+                    <p>role: Scrum Master
+                        organisation
+                    </p>
+                    <h3>Real Florent</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main" id="gant">
+
+        <div class="content">
+            <div class="card">
+                <div class="left">
+                    <h1>Notre gant</h1>
+                    <p>ptit text </p>
+                </div>
+                <div class="right">
+                    <img src="/assets/images/gant.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="left">
+                    <h1>Nos dificulter</h1>
+                    <p> On en a eu plein ca mére </p>
+                </div>
+                <div class="right">
+                    <img src="https://i.ibb.co/LS2T9sD/burger2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+
+        <h1>Nos services</h1>
+        <div class="services">
+            
+            <div class="service">
+                <h3>Livraison gratuite</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quidem recusandae explicabo veniam voluptatem voluptatum reprehenderit dignissimos ipsum magnam accusantium, dolores odio, dolorem provident sapiente consequuntur harum eaque veritatis? Eveniet.</p>
+            </div>
+
+            <div class="service">
+                <h3>Paiement en ligne</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quidem recusandae explicabo veniam voluptatem voluptatum reprehenderit dignissimos ipsum magnam accusantium, dolores odio, dolorem provident sapiente consequuntur harum eaque veritatis? Eveniet.</p>
+            </div>
+
+            <div class="service">
+                <h3>Aimé ou remboursé</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quidem recusandae explicabo veniam voluptatem voluptatum reprehenderit dignissimos ipsum magnam accusantium, dolores odio, dolorem provident sapiente consequuntur harum eaque veritatis? Eveniet.</p>
+            </div>
 
         </div>
-    </div>
-</nav>
 
-<section class="team" id="team">
-    <div class="titre blanc">
-        <h2 class="titre-texte">Présentation de léquipe</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. </p>
-    </div>
-    <div class="contenu">
-        <div class="box">
-            <div class="imbox">
-                <img src="./assets/images/RiotX_ChampionList_braum.jpg" alt="">
-            </div>
-            <div class="text">
-                <p>role: développeurs</p>
-                <h3>Alberola Constant</h3>
-            </div>
-        </div>
-        <div class="box">
-            <div class="imbox">
-                <img src="./assets/images/RiotX_ChampionList_kindred.jpg" alt="">
-            </div>
-            <div class="text">
-                <p>role: développeurs
-                    interface
-                </p>
-                <h3>Baraka Ahmed</h3>
-            </div>
-        </div>
-        <div class="box">
-            <div class="imbox">
-                <img src="./assets/images/RiotX_ChampionList_viego.jpg" alt="">
-            </div>
-            <div class="text">
-                <p>role: développeurs</p>
-                <h3>Bohec Quentin</h3>
-            </div>
-        </div>
-        <div class="box">
-            <div class="imbox">
-                <img src="./assets/images/RiotX_ChampionList_mordekaiser_v2.jpg" alt="">
-            </div>
-            <div class="text">
-                <p>role: Product Owner architecutre </p>
-                <h3>De Sio Justin</h3>
-            </div>
-        </div>
-        <div class="box">
-            <div class="imbox">
-                <img src="./assets/images/RiotX_ChampionList_pyke.jpg" alt="">
-            </div>
-            <div class="text">
-                <p>role: Scrum Master
-                    organisation
-                </p>
-                <h3>Real Florent</h3>
-            </div>
-        </div>
-    </div>
-</section>
+        <p id="contact">Contact : 08 19 17 278 1 | &copy; 2021, Burgure.</p>
+    </footer>
 </body>
-
-<script src="footer.js"></script>
-
 </html>
