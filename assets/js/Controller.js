@@ -19,6 +19,7 @@ class Controller {
         this.view.displayLastData(history)
         this.view.NotificationTemp(history)
         this.view.displayChart(history)
+        this.view.displayTab(history)
     }
 
 

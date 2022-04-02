@@ -113,6 +113,10 @@
         <!-- Tab 2 -->
         <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
         <label for="tab2">Graphiques</label>
+        <!-- Tab 3 -->
+        <input type="radio" name="tabset" id="tab3" aria-controls="rauchbier">
+        <label for="tab3">Historique</label>
+
 
 
         <div class="tab-panels">
@@ -122,9 +126,24 @@
             <section id="graph_section" class="tab-panel">
                 <div id="graph"></div>
             </section>
+            <section id="historiqueTab" class="tab-panel">
+                    <table border="1">
+                        <tr>
+                            <th colspan="3">Historique</th>
+                        </tr>
+                        <tr>
+                            <th>Date</th>
+                            <th>Temperature Interieur</th>
+                            <th>Temperature Exterieur</th>
+                        </tr>
+                        <tr id="ligne" class="tr_ligne">
+                        </tr>
+                    </table>
+            </section>
         </div>
 
     </div>
+
 
 
     <button class="add-button">Ajouter</button>

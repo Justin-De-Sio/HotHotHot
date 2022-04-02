@@ -216,3 +216,6 @@ input:checked + .slider:before {
     font-size: 1em;
     font-weight: 600;
 }
+
+/*tableau historique*/
+table, th, td {   border: 1px solid; }

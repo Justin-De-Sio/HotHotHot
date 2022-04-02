@@ -64,7 +64,7 @@ class View {
                 const capteur = lastCapteurs[capteurIndex]
 
 
-                //console.log(`Nom:${capteur['Nom']} ; Valeur: ${capteur['Valeur']} degree ; min :${Math.min.apply(Math, this.listValuesCapteur)}; max :${Math.max.apply(Math, this.listValuesCapteur)}`)
+                // console.log(`Nom:${capteur['Nom']} ; Valeur: ${capteur['Valeur']} degree ; min :${Math.min.apply(Math, this.listValuesCapteur)}; max :${Math.max.apply(Math, this.listValuesCapteur)}`)
 
 
                 this.displayElement = this.createElement("li", capteur['Nom'])
@@ -132,10 +132,10 @@ class View {
 
 
             }
-            console.log(this.chartDate)
-            console.log(this.chartValues)
-            console.log(this.chartLabel)
-            console.log(this.chartAll)
+            // console.log(this.chartDate)
+            // console.log(this.chartValues)
+            // console.log(this.chartLabel)
+            // console.log(this.chartAll)
             this.chart = this.chartAll
         }
         google.charts.load('current', { 'packages': ['corechart'] });
@@ -158,6 +158,82 @@ class View {
 
 
 
+    displayTab(history){
+
+        const lastCapteurs = history.slice(-1)[0];
+        this.chartLabel = ['date']
+        this.chartDate = []
+        this.chartValues = []
+
+
+
+        if (lastCapteurs) {
+            for (let capteurIndex = 0; capteurIndex < lastCapteurs.length; capteurIndex++) {
+                this.chartLabel.push(lastCapteurs[capteurIndex]['Nom'])
+                this.valuesCapteur = []
+                this.chartDate = []
+                // récupère toutes les températures d'un capteur spécifique
+                for (const Element of history) {
+                    let date = new Date(Element[capteurIndex]['Timestamp'] * 1000)
+                    this.chartDate.push(date.getHours() +
+                        ":" + date.getMinutes())
+
+                    this.valuesCapteur.push(Element[capteurIndex]['Valeur']);
+                }
+                this.valuesCapteur = this.valuesCapteur.map(Number) // str -> int
+                this.chartValues.push(this.valuesCapteur)
+
+            }
+
+            this.chartAll = []
+            this.chartAll.push(this.chartLabel)
+
+            for (let index = 0; index < this.chartDate.length; index++) {
+                this.chartAll.push([this.chartDate[index], this.chartValues[0][index], this.chartValues[1][index]])
+
+
+            }
+            this.chart = this.chartAll
+        }
+
+        if (document.getElementById('histo_date')){
+            for (let i = 1;i < this.chartDate.length; i++) {
+                // document.getElementById('ligne').remove()
+                document.getElementById('histo_tempE').remove()
+                document.getElementById('histo_tempI').remove()
+                document.getElementById('histo_date').remove()
+            }
+        }
+
+        for (let i = 0;i < this.chartDate.length; i++) {
+
+            let I_temperature = this.chartValues[1][i]
+            let E_temperature = this.chartValues[0][i]
+            let date_capteur = this.chartDate[i]
+
+            let clone_historique = document.getElementById("ligne").cloneNode(true)
+            clone_historique.setAttribute("id", "ligne")
+            var histoD = this.createElement('td','histo_date')
+            var histoTI = this.createElement('td','histo_tempI')
+            var histoTE = this.createElement('td','histo_tempE')
+
+            histoD.setAttribute("id","histo_date")
+            histoTI.setAttribute("id","histo_tempI")
+            histoTE.setAttribute("id","histo_tempE")
+            clone_historique.append(histoD,histoTI,histoTE)
+
+            histoD.innerText = date_capteur
+            histoTI.innerText = I_temperature
+            histoTE.innerText = E_temperature
+
+            clone_historique.style.visibility = "visible"
+            let table_tbody = document.querySelector("table tbody")
+            table_tbody.insertBefore(clone_historique, table_tbody.querySelector("#ligne").nextSibling)
+
+            }
+    }
+
+
     NotificationTemp(history) {
         // const lastCapteurs = history.slice(-1)[1]
         const lastCapteurs = history.slice(-1)[0]
@@ -175,7 +251,7 @@ class View {
                     new Notification(notifTitle, options);
 
                 }
-                if (parseInt(capteur.Valeur) <= 15) {
+                if (parseInt(capteur.Valeur) <= 5) {
                     var notifTitle = "Alerte Temperature Basse";
                     var notifBody = `Température ${capteur.Nom}: ${capteur.Valeur}°C`;
                     var notifImg = '/assets/images/android-chrome-192x192.png';
@@ -187,7 +263,8 @@ class View {
                 }
             })
 
-            setTimeout(this.NotificationTemp, 120000);
+            setTimeout(this.NotificationTemp, 1200000);
+
         }
 
     }
@@ -200,5 +277,4 @@ class View {
 
         })
     }
-
 }
