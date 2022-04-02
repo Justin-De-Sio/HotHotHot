@@ -106,20 +106,19 @@
   - since these are checkboxes the tabs not tab-able, need to use arrow keys
 -->
 
-    <div class="tabset p-10">
+    <div class="tabset p-10" role="tablist">
         <!-- Tab 1 -->
-        <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+        <input type="radio" name="tabset" id="tab1" role="tab" checked>
         <label for="tab1">Tableau de bord</label>
         <!-- Tab 2 -->
-        <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+        <input type="radio" name="tabset" id="tab2" role="tab">
         <label for="tab2">Graphiques</label>
 
 
-        <div class="tab-panels">
-            <section id="display_section" class="tab-panel">
-
+        <div class="tab-panels" role="tabpanel">
+            <section id="display_section" class="tab-panel" aria-labelledby="tab1">
             </section>
-            <section id="graph_section" class="tab-panel">
+            <section id="graph_section" class="tab-panel" aria-labelledby="tab2">
                 <div id="graph"></div>
             </section>
         </div>
@@ -139,7 +138,7 @@
 
     <footer class="text-center text-white" style="background-color: #0a4275;">
         <div class="container p-6">
-            <div class="">
+            <div>
                 <p class="flex justify-center items-center">
                     <span class="mr-4">foot</span>
                 </p>
@@ -147,7 +146,7 @@
         </div>
 
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-            Copyright © 2022 Justin De Sio & Alberoa Constant & Quentin Bohec & Baraka Ahmed & Real Florent
+            Copyright © 2022 Justin De Sio & Alberola Constant & Quentin Bohec & Baraka Ahmed & Real Florent
         </div>
     </footer>
 
