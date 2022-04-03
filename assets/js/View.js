@@ -9,6 +9,7 @@ class View {
         this.title.textContent = "Affichage des températures"
 
         this.displayList = this.createElement('ul', 'display-list')
+        this.displayList.className = "flex flex-wrap"
 
         this.graph = document.getElementById('graph')
 
@@ -56,7 +57,7 @@ class View {
 
 
                 this.displayElement = this.createElement("li", capteur['Nom'])
-
+                this.displayElement.className = "box_element"
 
                 this.displayList.append(this.displayElement)
 
@@ -67,10 +68,10 @@ class View {
                 this.temperature_value.textContent = `Valeur: ${capteur['Valeur']} °C`
 
                 this.temperature_maximum = this.createElement("p", "temperature_maximum")
-                this.temperature_maximum.textContent = `max :${Math.max.apply(Math, listValuesCapteur)}`
+                this.temperature_maximum.textContent = `max :${Math.max.apply(Math, listValuesCapteur)} °C`
 
                 this.temperature_minimum = this.createElement("p", "temperature_minimum")
-                this.temperature_minimum.textContent = `min :${Math.min.apply(Math, listValuesCapteur)}`
+                this.temperature_minimum.textContent = `min :${Math.min.apply(Math, listValuesCapteur)} °C`
 
                 this.displayElement.append(
                     this.temperature_name,
@@ -139,7 +140,7 @@ class View {
 
 
     displayTab(history) {
-
+        console.log("OKKKKKKKKK")
         const lastCapteurs = history.slice(-1)[0];
         var chartLabel = ['date']
         var chartDate = []
@@ -167,13 +168,13 @@ class View {
         }
         let trLabel = this.getElement('tr.label')
         let tbody = document.querySelector("tbody")
-        //reset
 
+        //reset
         for (let i = 1; i < chartDate.length; i++) {
             this.removeChild(trLabel)
             this.removeChild(tbody)
-
         }
+
         //generate Label
         chartLabel.forEach(labelName => {
             let thlabel = document.createElement("th")
@@ -209,7 +210,7 @@ class View {
                 var notifTitle;
                 if (capteur.Nom === "interieur") {
                     if (sensorValue >= 50) {
-                        notifTitle= "Appelez les pompiers ou arrêtez votre barbecue ! 🥵🥵🥵";
+                        notifTitle = "Appelez les pompiers ou arrêtez votre barbecue ! 🥵🥵🥵";
                     } else if (sensorValue >= 22) {
                         notifTitle = " Baissez le chauffage ! 🥵🥵🥵";
                     } else if (sensorValue <= 12 && sensorValue > 0) {
@@ -220,12 +221,11 @@ class View {
                 } else if (capteur.Nom === "exterieur") {
                     if (sensorValue >= 35) {
                         notifTitle = "Hot Hot Hot ! 🥵🥵🥵";
-                    }
-                    else if (sensorValue <= 0){
-                        notifTitle="Banquise en vue ! 🧊🧊🧊"
+                    } else if (sensorValue <= 0) {
+                        notifTitle = "Banquise en vue ! 🧊🧊🧊"
                     }
                 }
-                if (notifTitle){
+                if (notifTitle) {
                     var notifBody = `Température ${capteur.Nom}: ${capteur.Valeur}°C`;
                     var notifImg = '/assets/images/android-chrome-192x192.png';
                     var options = {
@@ -233,6 +233,7 @@ class View {
                         icon: notifImg
                     }
                     new Notification(notifTitle, options);
+                    window.alert("ALERTE\n" + notifTitle)
                 }
 
             })
