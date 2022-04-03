@@ -210,3 +210,8 @@ th{padding-inline: 1.5em}
     margin: 1em;
     padding: 1em;
 }
+footer span{
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
