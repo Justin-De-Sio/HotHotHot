@@ -182,15 +182,6 @@ class View {
                 this.chartValues.push(this.valuesCapteur)
             }
 
-            this.chartAll = []
-            this.chartAll.push(this.chartLabel)
-
-            for (let index = 0; index < this.chartDate.length; index++) {
-                this.chartAll.push([this.chartDate[index], this.chartValues[0][index], this.chartValues[1][index]])
-
-
-            }
-            this.chart = this.chartAll
         }
 
         if (document.getElementById('histo_date')){
