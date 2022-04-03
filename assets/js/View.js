@@ -54,12 +54,12 @@ class View {
         if (lastCapteurs) {
             for (let capteurIndex = 0; capteurIndex < lastCapteurs.length; capteurIndex++) {
 
-                this.listValuesCapteur = []
+                var listValuesCapteur = []
 
                 // récupère toutes les températures d'un capteur spécifique
                 for (const historyElement of history)
-                    this.listValuesCapteur.push(historyElement[capteurIndex]['Valeur']);
-                this.listValuesCapteur = this.listValuesCapteur.map(Number) // str -> int
+                   listValuesCapteur.push(historyElement[capteurIndex]['Valeur']);
+                listValuesCapteur = listValuesCapteur.map(Number) // str -> int
 
                 const capteur = lastCapteurs[capteurIndex]
 
@@ -79,10 +79,10 @@ class View {
                 this.temperature_value.textContent = `Valeur: ${capteur['Valeur']} °C`
 
                 this.temperature_maximum = this.createElement("p", "temperature_maximum")
-                this.temperature_maximum.textContent = `max :${Math.max.apply(Math, this.listValuesCapteur)}`
+                this.temperature_maximum.textContent = `max :${Math.max.apply(Math, listValuesCapteur)}`
 
                 this.temperature_minimum = this.createElement("p", "temperature_minimum")
-                this.temperature_minimum.textContent = `min :${Math.min.apply(Math, this.listValuesCapteur)}`
+                this.temperature_minimum.textContent = `min :${Math.min.apply(Math, listValuesCapteur)}`
 
                 this.displayElement.append(
                     this.temperature_name,
@@ -93,11 +93,6 @@ class View {
             }
         }
     }
-
-    valuesCapteur = []
-
-
-
     displayChart(history) {
         const lastCapteurs = history.slice(-1)[0];
         var chartLabel = ['date']
