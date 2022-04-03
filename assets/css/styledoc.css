@@ -9,6 +9,11 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
+#gant{
+    max-width : 100%;
+    height : auto;
+}
+
 nav{
     display:flex;
     flex-wrap:wrap;
