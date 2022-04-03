@@ -4,22 +4,20 @@ class Controller {
         this.view = sensorView;
 
         // Display initial data
-        this.onHistoryChanged(this.model._history)
+        this.view.displayLastData(this.model._history)
+        this.view.displayChart(this.model._history)
+        this.view.displayTab(this.model._history)
 
         this.view.bindResetHistory(this.handleResetHistory)
-
-        /*We used arrow functions on all the handle events. This allows us to call them from the view using the this context of the controller.
-         * If we did not use arrow functions, we would have to manually bind them,
-         * like this.view.bindAddTodo(this.handleAddTodo.bind(this)). Yikes.*/
         this.model.bindHistoryChanged(this.onHistoryChanged)
     }
 
     onHistoryChanged = (history) => {
 
         this.view.displayLastData(history)
-        this.view.NotificationTemp(history)
         this.view.displayChart(history)
         this.view.displayTab(history)
+        this.view.NotificationTemp(history)
     }
 
 
