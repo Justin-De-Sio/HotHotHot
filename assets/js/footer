@@ -1,0 +1,31 @@
+    <footer>
+
+        <ul class="medias">
+            <li class="bulle"><img src="assets/images/logo git.jpg" alt="https://www.notion.so/just1/HotHotHot-1fcd16ad168144968ff041c49791f6a1" class="logo-medias"></li>
+            <li class="bulle"><img src="assets/images/notion logo.jpg" alt="https://github.com/Justin-De-Sio/HotHotHot" class="logo-medias"></li>
+        </ul>
+
+        <h1>Nos services</h1>
+        <div class="services">
+            
+            <div class="service">
+                <h3>Livraison gratuite</h3>
+                <p></p>
+            </div>
+
+            <div class="service">
+                <h3>Paiement en ligne</h3>
+                <p></p>
+            </div>
+
+            <div class="service">
+                <h3>Aimé ou remboursé</h3>
+                <p></p>
+            </div>
+
+        </div>
+
+        <p id="contact">Contact : 08 19 17 278 1 | &copy; 2021, Burgure.</p>
+    </footer>
+</body>
+</html>
