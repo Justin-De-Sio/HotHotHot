@@ -220,3 +220,10 @@ input:checked + .slider:before {
 /*tableau historique*/
 table, th, td {   border: 1px solid;}
 th{padding-inline: 1.5em}
+
+.box_element{
+    background-color: rgba(50, 110, 212, 0.56);
+    border-radius: 50% 20% / 10% 40%;
+    margin: 1em;
+    padding: 1em;
+}
