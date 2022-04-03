@@ -1,4 +1,19 @@
+
+
+
+
 # HotHotHot
+## Dernières températures
+![image](https://user-images.githubusercontent.com/65298664/161450597-d2916a3c-1e81-4749-a670-47a447e5811e.png)
+
+## Graphique
+![image](https://user-images.githubusercontent.com/65298664/161450578-e15b23ad-cd15-47cd-969f-9ac595186e90.png)
+
+
+## Historique
+![image](https://user-images.githubusercontent.com/65298664/161450770-3348545a-09d1-4bd0-a832-2635101140ff.png)
+
+## énoncé
 Travail en groupe de 5 à rendre avant le 4 **avril 2022**, 0h00 (donc le dimanche 3 au plus tard).
 
 _HotHotHot_ est une application dont le rôle est d’être une interface d’information et de gestion d’un système domotique.
