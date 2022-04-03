@@ -215,3 +215,6 @@ footer span{
     display: grid;
     grid-template-columns: auto 1fr;
 }
+footer img{
+    margin-left: 2em;
+}
