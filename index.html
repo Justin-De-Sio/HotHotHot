@@ -60,35 +60,23 @@
     </div>
 </nav>
 <div id="param">
-    <div class="parametre-content">
-        <button id="ChangeThemeButton">
-            <i class="fas fa-sun" id="ChangeThemeIcon"></i>
-        </button>
-        <label for="ChangeThemeButton">Thème</label></div>
+
 
     <div class="parametre-content">
-        <label class="switch">
-            <input id="notifications" type="checkbox" checked>
-            <span class="slider round"></span>
-        </label>
-        <label for="notifications">Activer/Désactiver Notifications</label>
-    </div>
-    <!--TODO: faire un switch et la logique derrière :)-->
-    <div class="parametre-content">
-        <button id="vibrations" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-            Vibrations
+        <button id="notifications" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            Activer Notifications
         </button>
-        <label for="vibrations">Activer/desactiver Vibrations</label>
+
     </div>
     <div class="parametre-content">
         <button id="resetHistory" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
             réinitialiser
         </button>
-        <label for="resetHistory">Remettre à zéro l'historique</label>
+
     </div>
 </div>
 
-<div id="navbar">
+<div id="paramButtonParent">
     <button type="button" id="parambutton"><i class="fas fa-cogs"></i></button>
 </div>
 
@@ -132,12 +120,12 @@ Caveats:
         <section id="historiqueTab" class="tab-panel">
             <table>
                 <thead>
-                    <tr>
-                        <th colspan="100%">Historique</th>
-                    </tr>
-                    <tr class="label">
+                <tr>
+                    <th colspan="100%">Historique</th>
+                </tr>
+                <tr class="label">
 
-                    </tr>
+                </tr>
                 </thead>
                 <tbody>
 
@@ -147,8 +135,6 @@ Caveats:
     </div>
 
 </div>
-
-
 
 
 <footer class="text-center text-white fixed bottom-0" style="background-color: #0a4275;">

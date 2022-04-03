@@ -15,29 +15,23 @@ header {
     text-align: center;
 }
 
-#navbar {
-    text-align: center;
-}
+
 
 #navbar i {
     display: inline-block;
     text-align: center;
     text-decoration: none;
     font-size: 25px;
-    display: inline-block;
+
     border-radius: 10px;
     padding: 1em;
 }
 
 #navbar i:hover {
-    background-color: #ddd;
+    background-color: rgba(36, 37, 40, 0.07);
     color: black;
 }
 
-#navbar a {
-    display: inline;
-    list-style: none;
-}
 
 .content {
     padding: 16px;
@@ -61,6 +55,7 @@ header {
     float: right;
     display: none;
     text-align: left;
+    border-bottom-left-radius: 2em;
 }
 
 #param ul {
