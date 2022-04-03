@@ -100,49 +100,47 @@ class View {
 
     displayChart(history) {
         const lastCapteurs = history.slice(-1)[0];
-        this.chartLabel = ['date']
-        this.chartDate = []
-        this.chartValues = []
+        var chartLabel = ['date']
+        var chartDate = []
+        var chartValues = []
 
 
 
         if (lastCapteurs) {
             for (let capteurIndex = 0; capteurIndex < lastCapteurs.length; capteurIndex++) {
-                this.chartLabel.push(lastCapteurs[capteurIndex]['Nom'])
-                this.valuesCapteur = []
-                this.chartDate = []
+                chartLabel.push(lastCapteurs[capteurIndex]['Nom'])
+                var valuesCapteur = []
+               chartDate = []
                     // récupère toutes les températures d'un capteur spécifique
                 for (const Element of history) {
                     let date = new Date(Element[capteurIndex]['Timestamp'] * 1000)
-                    this.chartDate.push(date.getHours() +
+                    chartDate.push(date.getHours() +
                         ":" + date.getMinutes())
 
-                    this.valuesCapteur.push(Element[capteurIndex]['Valeur']);
+                    valuesCapteur.push(Element[capteurIndex]['Valeur']);
                 }
-                this.valuesCapteur = this.valuesCapteur.map(Number) // str -> int
-                this.chartValues.push(this.valuesCapteur)
+                valuesCapteur = valuesCapteur.map(Number) // str -> int
+                chartValues.push(valuesCapteur)
 
             }
 
-            this.chartAll = []
-            this.chartAll.push(this.chartLabel)
+            var chartAll = []
+            chartAll.push(chartLabel)
 
-            for (let index = 0; index < this.chartDate.length; index++) {
-                this.chartAll.push([this.chartDate[index], this.chartValues[0][index], this.chartValues[1][index]])
-
-
+            for (let index = 0; index < chartDate.length; index++) {
+                chartAll.push([chartDate[index], chartValues[0][index], chartValues[1][index]])
             }
-            // console.log(this.chartDate)
-            // console.log(this.chartValues)
-            // console.log(this.chartLabel)
-            // console.log(this.chartAll)
-            this.chart = this.chartAll
+
+            console.log(chartAll)
+
+            this.chart = chartAll
+            google.charts.load('current', { 'packages': ['corechart'] });
+            google.charts.setOnLoadCallback(drawChart);
         }
-        google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart);
+
 
         function drawChart() {
-            var data = google.visualization.arrayToDataTable(this.chart);
+            var data = google.visualization.arrayToDataTable(app.view.chart);
 
             var options = {
                 title: 'Company Performance',
@@ -182,7 +180,6 @@ class View {
                 }
                 this.valuesCapteur = this.valuesCapteur.map(Number) // str -> int
                 this.chartValues.push(this.valuesCapteur)
-
             }
 
             this.chartAll = []
@@ -251,7 +248,7 @@ class View {
                     new Notification(notifTitle, options);
 
                 }
-                if (parseInt(capteur.Valeur) <= 5) {
+                else if(parseInt(capteur.Valeur) <= 5) {
                     var notifTitle = "Alerte Temperature Basse";
                     var notifBody = `Température ${capteur.Nom}: ${capteur.Valeur}°C`;
                     var notifImg = '/assets/images/android-chrome-192x192.png';
