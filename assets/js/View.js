@@ -15,6 +15,19 @@ class View {
 
         this.display_section.append(this.title, this.displayList)
 
+        var button = document.getElementById("notifications");
+        button.addEventListener('click', function(e) {
+            Notification.requestPermission().then(function(result) {
+                if(result === 'granted') {
+                    app.view.NotificationTemp(history)
+                }
+            });
+        });
+
+        if (Notification.permission==="granted"){
+            button.style.visibility = "hidden"
+        }
+
 
     }
 
@@ -201,6 +214,7 @@ class View {
 
 
     NotificationTemp(history) {
+
 
         const lastCapteurs = history.slice(-1)[0]
 
