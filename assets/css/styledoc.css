@@ -189,10 +189,13 @@ footer #contact{
     font-size: 1em;
     font-weight: 600;
 }
-
 .logo-medias {
     width: 40px;
     height: 40px;
+}
+
+footer ul{
+    font-style: none;
 }
 
 @media screen and (max-width:680px){
