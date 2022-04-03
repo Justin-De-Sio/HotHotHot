@@ -86,6 +86,16 @@ header button{
     align-items: center;
 }
 
+#difficultees{
+    text-align: center;
+    align-items: center;
+}
+
+#ameliorations{
+    text-align: center;
+    align-items: center;
+}
+
 body h1{
     text-align: center;
 }

@@ -26,13 +26,17 @@
     <div class="container_btn">
         <a href="#team"><button class="btn-first b1 ">L'équipe</button></a>
         <a href="#organisation"><button class="btn-first b2 ">L'Organisation</button></a>
+        <a href="#difficultees"><button class="btn-first b2 ">Difficultées rencontrées</button></a>
+        <a href="#ameliorations"><button class="btn-first b2 ">Améliorations possibles</button></a>
     </div>
 </header>
 
 <section class="organisation" id="organisation">
     <div>
         <h1> Notre organisation</h1>
-        <P> Les tâches ont été réparti grace à <strong>Notion</strong>, notre code était partagé via <strong>Github</strong> et nous communiquions via <strong>Discord</strong> afin de mener à bien ce projet </P>
+        <p>Les tâches ont été réparti grace à <strong>Notion</strong>, notre code était partagé via
+            <strong>Github</strong> et nous communiquions via <strong>Discord</strong> afin de mener à bien ce projet.
+        </p>
     </div>
     <div>
         <img id="gant" src="/assets/images/gant.png" onclick=" openImg()">
@@ -51,7 +55,7 @@
                 <img src="./assets/images/RiotX_ChampionList_braum.jpg" alt="">
             </div>
             <div class="text">
-                <p>role: développeurs</p>
+                <p>Développeur</p>
                 <h3>Alberola Constant</h3>
             </div>
         </div>
@@ -60,9 +64,7 @@
                 <img src="./assets/images/RiotX_ChampionList_kindred.jpg" alt="">
             </div>
             <div class="text">
-                <p>role: développeurs
-                    interface
-                </p>
+                <p>Développeuse interface</p>
                 <h3>Ahmed Baraka</h3>
             </div>
         </div>
@@ -71,7 +73,7 @@
                 <img src="./assets/images/RiotX_ChampionList_viego.jpg" alt="">
             </div>
             <div class="text">
-                <p>role: développeurs</p>
+                <p>Développeur</p>
                 <h3>Bohec Quentin</h3>
             </div>
         </div>
@@ -80,7 +82,7 @@
                 <img src="./assets/images/RiotX_ChampionList_mordekaiser_v2.jpg" alt="">
             </div>
             <div class="text">
-                <p>role: Product Owner architecutre </p>
+                <p>Product Owner | Responsable Architecture</p>
                 <h3>De Sio Justin</h3>
             </div>
         </div>
@@ -89,18 +91,16 @@
                 <img src="./assets/images/RiotX_ChampionList_pyke.jpg" alt="">
             </div>
             <div class="text">
-                <p>role: Scrum Master
-                    organisation
-                </p>
+                <p>Scrum Master</p>
                 <h3>Real Florent</h3>
             </div>
         </div>
     </div>
 </section>
 
-<section>
+<section id="difficultees">
     <h1>Nos difficultées</h1>
-    <ul> <h4>Problèmes rencontrées</h4>
+    <ul style="list-style-type: none"><h3>Problèmes rencontrées</h3>
         <li>
             Mauvaise idée de départ avec un MVC en PHP
         </li>
@@ -108,7 +108,7 @@
             Travail irrégulier
         </li>
     </ul>
-    <ul> <h4>Solutions apportées</h4>
+    <ul style="list-style-type: none"> <h3>Solutions apportées</h3>
         <li>
             Refonte totale du code en JavaScript
         </li>
@@ -116,6 +116,16 @@
             Organisation de sessions de code ensemble via Discord
         </li>
     </ul>
+</section>
+
+<section id="ameliorations">
+    <h1>Améliorations possibles</h1>
+    <p>Si le projet était à refaire, nous commencerions par directement utiliser un <strong>pattern observer</strong>
+        plutôt qu'une <strong>architecture MVC en PHP</strong>.<br>
+        Nous ferions également plus de réunions de groupes afin de décider ensemble de la direction à prendre vis à vis
+        de l'utilisation de <strong>framework</strong> ou non pour le projet par exemple.<br>
+        <strong><u>À part cela nos choix seraient sûrement à peu de choses près les mêmes.</u></strong>
+    </p>
 </section>
 
 <footer>
