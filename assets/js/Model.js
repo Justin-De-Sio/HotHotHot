@@ -17,22 +17,18 @@ class Model {
         this._commit(this._history)
     }
 
-    get history() {
-        this._history = JSON.parse(localStorage.getItem('history')) || []
-        return this._history;
-    }
-
     bindHistoryChanged(callback) {
         this.onHistoryChanged = callback
     }
 
-    _commit(history) {
-        localStorage.setItem('history', JSON.stringify(history))
-        this.onHistoryChanged(this.history)
+    _commit(historyToPush) {
+        localStorage.setItem('history', JSON.stringify(historyToPush))
+        this.onHistoryChanged(historyToPush)
     }
 
     resetHistory() {
-        this._commit(this._history = [])
-        this.onHistoryChanged(this.history)
+        this._history = []
+        this._commit(this._history)
+
     }
 }

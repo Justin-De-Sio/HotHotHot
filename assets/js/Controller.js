@@ -4,7 +4,7 @@ class Controller {
         this.view = sensorView;
 
         // Display initial data
-        this.onHistoryChanged(this.model.history)
+        this.onHistoryChanged(this.model._history)
 
         this.view.bindResetHistory(this.handleResetHistory)
 
