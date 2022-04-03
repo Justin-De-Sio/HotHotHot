@@ -159,27 +159,28 @@ class View {
     displayTab(history){
 
         const lastCapteurs = history.slice(-1)[0];
-        this.chartLabel = ['date']
-        this.chartDate = []
-        this.chartValues = []
+        var chartLabel = ['date']
+        var chartDate = []
+        var chartValues = []
 
 
 
         if (lastCapteurs) {
             for (let capteurIndex = 0; capteurIndex < lastCapteurs.length; capteurIndex++) {
-                this.chartLabel.push(lastCapteurs[capteurIndex]['Nom'])
-                this.valuesCapteur = []
-                this.chartDate = []
+                chartLabel.push(lastCapteurs[capteurIndex]['Nom'])
+                var valuesCapteur = []
+                chartDate = []
                 // récupère toutes les températures d'un capteur spécifique
                 for (const Element of history) {
                     let date = new Date(Element[capteurIndex]['Timestamp'] * 1000)
-                    this.chartDate.push(date.getHours() +
+                    chartDate.push(date.getHours() +
                         ":" + date.getMinutes())
 
-                    this.valuesCapteur.push(Element[capteurIndex]['Valeur']);
+                    valuesCapteur.push(Element[capteurIndex]['Valeur']);
                 }
-                this.valuesCapteur = this.valuesCapteur.map(Number) // str -> int
-                this.chartValues.push(this.valuesCapteur)
+                valuesCapteur = valuesCapteur.map(Number) // str -> int
+                chartValues.push(valuesCapteur)
+
             }
 
         }
@@ -193,11 +194,11 @@ class View {
             }
         }
 
-        for (let i = 0;i < this.chartDate.length; i++) {
+        for (let i = 0;i < chartDate.length; i++) {
 
-            let I_temperature = this.chartValues[1][i]
-            let E_temperature = this.chartValues[0][i]
-            let date_capteur = this.chartDate[i]
+            let I_temperature = chartValues[1][i]
+            let E_temperature = chartValues[0][i]
+            let date_capteur = chartDate[i]
 
             let clone_historique = document.getElementById("ligne").cloneNode(true)
             clone_historique.setAttribute("id", "ligne")
