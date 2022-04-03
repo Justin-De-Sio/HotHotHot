@@ -218,4 +218,5 @@ input:checked + .slider:before {
 }
 
 /*tableau historique*/
-table, th, td {   border: 1px solid; }
+table, th, td {   border: 1px solid;}
+th{padding-inline: 1.5em}
