@@ -15,59 +15,33 @@
 <nav>
     <h1><img src="/assets/images/favicon-32x32.png">HotHotHot</h1>
     <div class="onglets">
-        <a href="index.html"><img src="assets/images/">Home</a>
-        <a href="compte.html"><img src="/assets/images/">Compte</a>
-        <a href="doc.html"><img src="/assets/images/">Documentation</a>
+        <a href="index.html">Home</a>
+        <a href="account.html">Compte</a>
+        <a href="doc.html">Documentation</a>
     </div>
 </nav>
 
 <header>
     <h1><span>Page </span><span>de </span><span>Documentation </span></h1>
     <div class="container_btn">
-        <button class="btn-first b1 " href="#" >La Team </button>
-        <button class="btn-first b2 " href="#organisation" >L'Orgnasationnel</button>
+        <a href="#team"><button class="btn-first b1 ">L'équipe</button></a>
+        <a href="#organisation"><button class="btn-first b2 ">L'Organisation</button></a>
     </div>
 </header>
 
 <section class="organisation" id="organisation">
     <div>
         <h1> Notre organisation</h1>
-        <P> Nous nous somme répartie les tache grace a divers ourilts et la méthode agile </P>
+        <P> Les tâches ont été réparti grace à <strong>Notion</strong>, notre code était partagé via <strong>Github</strong> et nous communiquions via <strong>Discord</strong> afin de mener à bien ce projet </P>
     </div>
     <div>
-        <img id="gant" src="/assets/images/gant.jpg" onclick=" openImg()">
-        <script src="/assets/js/scrpitdoc"></script>
-    </div>
-    <a href="https://www.notion.so/just1/HotHotHot-1fcd16ad168144968ff041c49791f6a1";></a><img src="assets/images/logo git.jpg" alt="logo github"  class="logo-medias">
-    <a href="https://www.notion.so/just1/HotHotHot-1fcd16ad168144968ff041c49791f6a1"></a><img src="assets/images/notion logo.jpg" alt="logo notions"  class="logo-medias">
-</section>
-
-<section class="main" id="produits">
-
-    <div class="content">
-        <div class="card">
-            <div class="left">
-                <h1>Notions</h1>
-                <p>https://www.notion.so/just1/HotHotHot-1fcd16ad168144968ff041c49791f6a1 </p>
-            </div>
-            <div class="right">
-                <img src="assets/images/notion logo.jpg" alt="logo notion">
-            </div>
-        </div>
-        <div class="card">
-            <div class="left">
-                <h1>Github</h1>
-                <p>https://github.com/Justin-De-Sio/HotHotHot</p>
-            </div>
-            <div class="right">
-                <img src="assets/images/logo git.jpg" alt="logo github">
-            </div>
-        </div>
+        <img id="gant" src="/assets/images/gant.png" onclick=" openImg()">
+        <script src="/assets/js/scriptdoc.js"></script>
     </div>
 </section>
 
 <div class="textteam">
-    <h1>Présentation de léquipe</h1>
+    <h1>Présentation de l'équipe</h1>
 </div>
 
 <section class="team" id="team">
@@ -89,7 +63,7 @@
                 <p>role: développeurs
                     interface
                 </p>
-                <h3>Baraka Ahmed</h3>
+                <h3>Ahmed Baraka</h3>
             </div>
         </div>
         <div class="box">
@@ -125,28 +99,16 @@
 </section>
 
 <footer>
-    <h1>Truc a mettre ca mére je sais pas </h1>
+    <h1>HotHotHot</h1>
     <div class="services">
-
-        <ul class="medias">
-            <li ><a href="https://www.notion.so/just1/HotHotHot-1fcd16ad168144968ff041c49791f6a1";></a><img src="assets/images/logo git.jpg" alt="logo github"  class="logo-medias"></li>
-            <li ><img src="assets/images/notion logo.jpg" alt="logo notions" href ="https://github.com/Justin-De-Sio/HotHotHot" class="logo-medias"></li>
-        </ul>
-
         <div class="service">
-            <h3>Livraison gratuite</h3>
-            <p></p>
+            <a href="https://www.notion.so/just1/HotHotHot-1fcd16ad168144968ff041c49791f6a1"><h3>Notion</h3></a>
         </div>
         <div class="service">
-            <h3>Paiement en ligne</h3>
-            <p></p>
-        </div>
-        <div class="service">
-            <h3>Aimé ou remboursé</h3>
-            <p></p>
+            <a href="https://github.com/Justin-De-Sio/HotHotHot"><h3>Github</h3></a>
         </div>
     </div>
-    <p id="contact">Contact : HotHotHot@noreply.github.com| &copy; 2022, HotHotHot.</p>
+    <p id="contact">Copyright © 2022 Justin De Sio | Alberola Constant | Quentin Bohec | Baraka Ahmed | Real Florent</p>
 </footer>
 </body>
 </html>
