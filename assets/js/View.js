@@ -114,7 +114,7 @@ class View {
                 chartAll.push([chartDate[index], chartValues[0][index], chartValues[1][index]])
             }
 
-            console.log(chartAll)
+            // console.log(chartAll)
 
             this.chart = chartAll
             google.charts.load('current', {'packages': ['corechart']});
@@ -200,23 +200,32 @@ class View {
 
 
     NotificationTemp(history) {
-        // const lastCapteurs = history.slice(-1)[1]
+
         const lastCapteurs = history.slice(-1)[0]
+
         if (lastCapteurs) {
             lastCapteurs.forEach(capteur => {
-                if (parseInt(capteur.Valeur) >= 25) {
-
-                    var notifTitle = "Alerte Temperature Haute";
-                    var notifBody = `Température ${capteur.Nom}: ${capteur.Valeur}°C`;
-                    var notifImg = '/assets/images/android-chrome-192x192.png';
-                    var options = {
-                        body: notifBody,
-                        icon: notifImg
+                var sensorValue = parseInt(capteur.Valeur);
+                var notifTitle;
+                if (capteur.Nom === "interieur") {
+                    if (sensorValue >= 50) {
+                        notifTitle= "Appelez les pompiers ou arrêtez votre barbecue ! 🥵🥵🥵";
+                    } else if (sensorValue >= 22) {
+                        notifTitle = " Baissez le chauffage ! 🥵🥵🥵";
+                    } else if (sensorValue <= 12 && sensorValue > 0) {
+                        notifTitle = "Montez le chauffage ou mettez un gros pull ! 🥶";
+                    } else if (sensorValue <= 0) {
+                        notifTitle = "Canalisations gelées, appelez SOS plombier et mettez un bonnet ! 🥶🥶🥶";
                     }
-                    new Notification(notifTitle, options);
-
-                } else if (parseInt(capteur.Valeur) <= 5) {
-                    var notifTitle = "Alerte Temperature Basse";
+                } else if (capteur.Nom === "exterieur") {
+                    if (sensorValue >= 35) {
+                        notifTitle = "Hot Hot Hot ! 🥵🥵🥵";
+                    }
+                    else if (sensorValue <= 0){
+                        notifTitle="Banquise en vue ! 🧊🧊🧊"
+                    }
+                }
+                if (notifTitle){
                     var notifBody = `Température ${capteur.Nom}: ${capteur.Valeur}°C`;
                     var notifImg = '/assets/images/android-chrome-192x192.png';
                     var options = {
@@ -225,6 +234,7 @@ class View {
                     }
                     new Notification(notifTitle, options);
                 }
+
             })
 
             setTimeout(this.NotificationTemp, 1200000);

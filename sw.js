@@ -13,12 +13,12 @@ self.addEventListener('install', evt => {
     // returning promise resolves.
     evt.waitUntil(caches.open(CACHE).then(cache => {
         cache.addAll([
-            "/index.html",
-            "/assets/images/favicon-16x16.png",
-            "/assets/images/favicon-32x32.png",
-            "/assets/images/android-chrome-192x192.png",
-            "/assets/images/android-chrome-512x512.png",
-            "/sw.js",
+            "./index.html",
+            "./assets/images/favicon-16x16.png",
+            "./assets/images/favicon-32x32.png",
+            "./assets/images/android-chrome-192x192.png",
+            "./assets/images/android-chrome-512x512.png",
+            "./sw.js",
 
         ]);
     }));

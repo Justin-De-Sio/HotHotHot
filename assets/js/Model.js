@@ -29,6 +29,6 @@ class Model {
     resetHistory() {
         this._history = []
         this._commit(this._history)
-
+        document.location.reload(true)
     }
 }
