@@ -15,7 +15,7 @@ class Controller {
     }
 
     onHistoryChanged = (history) => {
-        //this.view.displayHistory(history)
+
         this.view.displayLastData(history)
         this.view.NotificationTemp(history)
         this.view.displayChart(history)

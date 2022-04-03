@@ -30,16 +30,7 @@ class View {
     getElement(selector) {
         return document.querySelector(selector)
     }
-
-    displayHistory(history) {
-        console.log(history)
-    }
-
-
-
-
-
-    // supprime les anciens affichages de temperature
+// supprime les anciens affichages de temperature
     removeChild(parentElement) {
         while (parentElement.firstChild) {
             parentElement.removeChild(parentElement.firstChild)
@@ -64,7 +55,6 @@ class View {
                 const capteur = lastCapteurs[capteurIndex]
 
 
-                // console.log(`Nom:${capteur['Nom']} ; Valeur: ${capteur['Valeur']} degree ; min :${Math.min.apply(Math, this.listValuesCapteur)}; max :${Math.max.apply(Math, this.listValuesCapteur)}`)
 
 
                 this.displayElement = this.createElement("li", capteur['Nom'])
