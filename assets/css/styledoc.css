@@ -84,16 +84,19 @@ header button{
 #organisation{
     text-align: center;
     align-items: center;
+    padding: 10px;
 }
 
-#difficultees{
+#difficultes{
     text-align: center;
     align-items: center;
+    padding: 10px;
 }
 
 #ameliorations{
     text-align: center;
     align-items: center;
+    padding: 10px;
 }
 
 body h1{
